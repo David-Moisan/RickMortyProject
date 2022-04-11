@@ -1,5 +1,4 @@
 import EventEmitter from './EventEmitter.js'
-import Experience from '../Experience.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
@@ -15,7 +14,7 @@ export default class Resources extends EventEmitter
     {
         super()
 
-        this.experience = new Experience()
+        this.experience = window.experience
         this.renderer = this.experience.renderer.instance
 
         this.setLoaders()

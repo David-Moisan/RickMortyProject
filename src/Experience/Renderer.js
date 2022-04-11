@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import Experience from './Experience.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 
@@ -7,7 +6,7 @@ export default class Renderer
 {
     constructor(_options = {})
     {
-        this.experience = new Experience()
+        this.experience = window.experience
         this.config = this.experience.config
         this.debug = this.experience.debug
         this.stats = this.experience.stats

@@ -14,17 +14,10 @@ import assets from './assets.js'
 
 export default class Experience
 {
-    static instance
-
     constructor(_options = {})
     {
-        if(Experience.instance)
-        {
-            return Experience.instance
-        }
-        Experience.instance = this
+        window.experience = this
 
-        // Options
         this.targetElement = _options.targetElement
 
         if(!this.targetElement)
