@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import Environment from './Environment.js'
 import Portal from './Portal.js'
 
 export default class World {
@@ -11,7 +12,7 @@ export default class World {
       this.resources.on('groupEnd', _group => {
          if (_group.name === 'base') {
             this.setPortal()
-            this.setFloor()
+            this.setEvironment()
          }
       })
    }
@@ -20,20 +21,8 @@ export default class World {
       this.portal = new Portal()
    }
 
-   setFloor() {
-      this.floor = {}
-
-      //Geometry
-      this.floor.geometry = new THREE.PlaneGeometry(10, 10, 1, 1)
-      this.floor.geometry.rotateX(-Math.PI * 0.5)
-
-      //Material
-      this.floor.material = new THREE.MeshStandardMaterial({ color: 0xffffff })
-
-      //Mesh
-      this.floor.mesh = new THREE.Mesh(this.floor.geometry, this.floor.material)
-      this.floor.mesh.position.y = -0.5
-      this.scene.add(this.floor.mesh)
+   setEvironment() {
+      this.environement = new Environment()
    }
 
    resize() {}
