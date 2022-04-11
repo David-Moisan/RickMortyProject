@@ -12,13 +12,14 @@ export default class Portal {
       this.scene.add(this.group)
 
       this.setMain()
+      this.setLight()
    }
 
    setMain() {
       this.main = {}
 
       // Geometry
-      this.main.geometry = new THREE.PlaneGeometry(3, 3, 1, 1)
+      this.main.geometry = new THREE.PlaneGeometry(1, 1, 1, 1)
 
       //Material
       this.main.material = new THREE.ShaderMaterial({
@@ -36,6 +37,12 @@ export default class Portal {
       //Mesh
       this.main.mesh = new THREE.Mesh(this.main.geometry, this.main.material)
       this.group.add(this.main.mesh)
+   }
+
+   setLight() {
+      this.light = new THREE.PointLight(0x55ff55, 1)
+      this.light.position.y = 1
+      this.scene.add(this.light)
    }
 
    update() {
