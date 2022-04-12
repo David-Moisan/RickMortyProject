@@ -4,6 +4,13 @@ export default class Environment {
       this.resources = this.experience.resources
       this.scene = this.experience.scene
 
-      this.scene.add(this.resources.items.envModels.scene)
+      this.model = this.resources.items.envModels.scene
+
+      this.model.traverse(_child => {
+         _child.castShadow = true
+         _child.receiveShadow = true
+      })
+
+      this.scene.add(this.model)
    }
 }

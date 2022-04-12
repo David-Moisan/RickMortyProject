@@ -13,7 +13,7 @@ export default class Camera {
       this.scene = this.experience.scene
 
       // Set up
-      this.mode = 'debug' // defaultCamera \ debugCamera
+      this.mode = 'default' // defaultCamera \ debugCamera
 
       this.setInstance()
       this.setModes()
@@ -39,6 +39,23 @@ export default class Camera {
       this.modes.default = {}
       this.modes.default.instance = this.instance.clone()
       this.modes.default.instance.rotation.reorder('YXZ')
+      this.modes.default.instance.position.set(0.25, 0.5, 1.5)
+
+      this.modes.default.orbitControls = new OrbitControls(
+         this.modes.default.instance,
+         this.targetElement
+      )
+      this.modes.default.orbitControls.enabled = true
+      this.modes.default.orbitControls.enableRotate = false
+      this.modes.default.orbitControls.enableDamping = true
+      this.modes.default.orbitControls.update()
+
+      // this.modes.default.orbitControls.enabled = this.modes.default.active
+      // this.modes.default.orbitControls.screenSpacePanning = true
+      // this.modes.default.orbitControls.enableKeys = false
+      // this.modes.default.orbitControls.zoomSpeed = 0.25
+      // this.modes.default.orbitControls.enableDamping = true
+      // this.modes.default.orbitControls.update()
 
       // Debug
       this.modes.debug = {}
@@ -73,6 +90,7 @@ export default class Camera {
    update() {
       // Update debug orbit controls
       this.modes.debug.orbitControls.update()
+      this.modes.default.orbitControls.update()
 
       // Apply coordinates
       this.instance.position.copy(this.modes[this.mode].instance.position)
