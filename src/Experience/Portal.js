@@ -79,10 +79,11 @@ export default class Portal {
 
       this.surface.material.uniforms.uPullStrength.value =
          this.surface.pull.value
+
       //Light
       this.light.instance.position.copy(this.light.position)
       this.light.instance.intensity =
-         1 + Math.sin(this.time.elapsed * 0.0001 * 100) * 0.25
+         1 + Math.sin(this.time.elapsed * 0.0001 * 100) * 0.5
       this.light.instance.position.x =
          Math.sin(this.time.elapsed * 0.0001 * 100) * 0.02
       this.light.instance.position.y =

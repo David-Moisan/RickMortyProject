@@ -12,7 +12,7 @@ void main() {
     pullStrength *= uPullStrength;
     newPosition.z += pullStrength;
 
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
 
     vUv = uv;
 }

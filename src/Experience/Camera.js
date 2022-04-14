@@ -45,8 +45,11 @@ export default class Camera {
          this.modes.default.instance,
          this.targetElement
       )
+
+      console.log(this.modes.default.orbitControls)
+      this.modes.default.orbitControls.autoRotate = true
       this.modes.default.orbitControls.enabled = true
-      this.modes.default.orbitControls.enableRotate = false
+      this.modes.default.orbitControls.enableRotate = true
       this.modes.default.orbitControls.enableDamping = true
       this.modes.default.orbitControls.update()
 
